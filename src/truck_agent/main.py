@@ -6,6 +6,10 @@ app = FastAPI()
 
 @app.post("/decide", response_model=DecideResponse)
 def decide(req: DecideRequest) -> DecideResponse:
+    """
+    See https://app.swaggerhub.com/apis/trustbit/trustbit-sustainable-logistics-simulation/1.0.0 for 
+    a detailed description of this endpoint.
+    """
     if req.offers:
         return DecideResponse(command="DELIVER", argument=req.offers[0].uid)
     else:
