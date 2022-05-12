@@ -36,7 +36,7 @@ class TruckState(BaseModel):
     balance: float
     uid: int
     loc: str
-    driving_non_stop: float
+    hours_since_full_rest: float
     time: float
 
 

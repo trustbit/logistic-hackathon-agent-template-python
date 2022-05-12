@@ -4,13 +4,12 @@ from truck_agent.main import app
 
 client = TestClient(app)
 
-def test_single_cargo_should_result_in_deliver_response():
+def test_sample_decide_request():
     """
     Use this test to check if the truck_agent is working correctly.
-    Currently it tests only one cargo offer, but you can add more and adjust the test.
     Of course, when you change the agent, you should also change this test.
     """
-    payload = open("tests/decide.json", "r").read()
+    payload = open("tests/sample_decide_0.json", "r").read()
     response = client.post(
         "/decide",
         headers={"Content-Type": "application/json"},
@@ -19,5 +18,5 @@ def test_single_cargo_should_result_in_deliver_response():
     assert response.status_code == 200
     assert response.json() == {
         "command": "DELIVER",
-        "argument": "10",
+        "argument": "57",
     }
