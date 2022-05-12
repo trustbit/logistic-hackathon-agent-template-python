@@ -2,23 +2,10 @@
 Data types that are passed to the agents and expected in return
 """
 from typing import List, Dict, Literal, Union
-
-
-# World information
 from pydantic import BaseModel
 
 
-class Location(BaseModel):
-    name: str
-    roads: Dict[str, float]
-
-
-class WorldInfo(BaseModel):
-    locations: List[Location]
-    fuel_cost: float  # euros per liter
-
-
-# Current cargo information
+# Request and response
 
 class CargoOffer(BaseModel):
     uid: int  # unique cargo id
@@ -49,3 +36,21 @@ class DecideResponse(BaseModel):
     command: Literal["DRIVE", "DELIVER", "SLEEP"]
     argument: Union[str, int, None] = None
 
+# The world map can be downloaded by a truck agent from https://raw.githubusercontent.com/trustbit/logistic-hackathon-public/main/data/map.json during a simulation run.
+# It is not required to download it, but a team might be able to get some useful  information from the map to optimize their truck agents decisions.
+# To make individual decide requests as fast as possible, it is better to download the map at the very beginning, when the agent starts up,
+# otherwise the simulation might decide that the truck is reacting too slow and exclude it from the current simulation run.
+
+class Road(BaseModel):
+    dest: str
+    km: float
+    kmh: float
+    major: bool
+
+class Location(BaseModel):
+    city: str
+    country: str
+    lat: float
+    lng: float
+    population: int
+    roads: List[Road]

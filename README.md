@@ -24,8 +24,9 @@
 
 ## How can I test my truck agent?
 - Open the project in your favorite IDE and browse to [tests/test_main.py](tests/test_main.py)
-- This is an integration test which will start your agent and will call the `decide` method with the contents of file [tests/decide.json](tests/decide.json)
-- You can always change the `decide.json` file and debug your script.
+- This is an integration test which will start your agent and will call the `decide` method with the contents of file [tests/sample_decide_0.json](tests/sample_decide_0.json)
+- You can always change the test and debug your script.
+- Also checkout the other sample requests provided.
 
 ## How can I run the truck agent or its tests without an IDE?
 - `pip install . && run` will start the truck agent, which will then service requests on port 8080.
