@@ -31,3 +31,6 @@
 ## How can I run the truck agent or its tests without an IDE?
 - `pip install . && run` will start the truck agent, which will then service requests on port 8080.
 - `python3 setup.py test` will execute all the tests in the project.
+
+## Can I get more information about the model properties?
+Sure, check out our [API documentation](https://app.swaggerhub.com/apis-docs/trustbit/trustbit-sustainable-logistics-simulation/1.0.0) and also thoroughly read our [Simulation documentation](https://github.com/trustbit/logistic-hackathon-public#simulation).
