@@ -33,7 +33,7 @@ class DecideRequest(BaseModel):
 
 
 class DecideResponse(BaseModel):
-    command: Literal["DRIVE", "DELIVER", "SLEEP"]
+    command: Literal["ROUTE", "DELIVER", "SLEEP"]
     argument: Union[str, int, None] = None
 
 # The world map can be downloaded by a truck agent from https://raw.githubusercontent.com/trustbit/logistic-hackathon-public/main/data/map.json during a simulation run.
